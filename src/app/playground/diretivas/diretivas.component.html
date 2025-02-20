@@ -1,0 +1,110 @@
+<h1>Diretivas estruturais</h1>
+<p>São usadas para criar estruturas no template</p>
+<div>
+  <div class="container">
+    <h1>NgIf</h1>
+    <div class="box" *ngIf="condicao1; else elseTemplate">ngIf</div>
+    <ng-template #elseTemplate>
+      <div class="box">else</div>
+    </ng-template>
+    <div class="box" *ngIf="condicao2; else else2Template">ngIf2</div>
+    <ng-template #else2Template>
+      <div class="box">else2</div>
+    </ng-template>
+  </div>
+
+  <div class="container">
+    <h1>NgFor</h1>
+    <div
+      class="box"
+      *ngFor="let number of numbers; index as i"
+      (click)="removeItem(i)"
+    >
+      {{ number }} from index {{ i }}
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>NgSwitch</h1>
+    <div [ngSwitch]="expressao">
+      <div class="box" *ngSwitchCase="'200'">Sucesso</div>
+      <div class="box" *ngSwitchCase="'400'">Erro cliente</div>
+      <div class="box" *ngSwitchCase="'500'">Erro servidor</div>
+    </div>
+  </div>
+</div>
+<hr />
+<h1>Diretivas de atributo</h1>
+<p>Modificam a aparencia ou comportamento do elemento</p>
+<div>
+  <div
+    class="box"
+    [ngClass]="{
+      estilo1: condicao1,
+      estilo2: condicao2,
+      'is-active': isActive
+    }"
+  >
+    Me estiliza (ngClass)
+  </div>
+  <div
+    class="box"
+    [ngStyle]="{
+      'background-color': isActive ? 'purple' : 'green'
+    }"
+  >
+    Me estiliza (ngStyle)
+  </div>
+</div>
+<hr />
+<h1>Diretivas customizadas</h1>
+<p>O limite é sua imaginação</p>
+<div class="box" appTest>diretiva customizada</div>
+<hr />
+<h1>Control flow 17+</h1>
+<div>
+  <div class="container">
+    <h1>&#64;If</h1>
+
+    @if(condicao1) {
+    <div class="box">&#64;If</div>
+    }
+    <br />
+    @if(condicao2) {
+    <div class="box">&#64;If2</div>
+    } @else {
+    <div class="box">else2</div>
+    }
+  </div>
+
+  <div class="container">
+    <h1>&#64;for</h1>
+    <!-- *ngFor="let number of numbers; index as i" -->
+    @for(number of numbers; track number; let i = $index) {
+    <div class="box" (click)="removeItem(i)">
+      {{ number }} from index {{ i }}
+    </div>
+
+    }
+  </div>
+
+  <div class="container">
+    <h1>&#64;switch</h1>
+    <!-- 
+    <div [ngSwitch]="expressao">
+      <div class="box" *ngSwitchCase="'200'">Sucesso</div>
+      <div class="box" *ngSwitchCase="'400'">Erro cliente</div>
+      <div class="box" *ngSwitchCase="'500'">Erro servidor</div>
+    </div> -->
+    @switch(expressao) { @case ('200') {
+    <div class="box">Sucesso</div>
+
+    } @case ('400') {
+    <div class="box">Erro cliente</div>
+
+    } @case ('500') {
+    <div class="box">Erro servidor</div>
+
+    } }
+  </div>
+</div>

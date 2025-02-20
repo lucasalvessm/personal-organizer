@@ -1,0 +1,17 @@
+mat-toolbar {
+  background: rgb(221, 221, 221);
+  height: fit-content;
+  min-height: 64px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  @media (max-width: 450px) {
+    .header {
+      flex-direction: column;
+    }
+  }
+}

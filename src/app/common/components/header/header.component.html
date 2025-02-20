@@ -1,0 +1,20 @@
+<!-- <header class="header">
+  <span>MeuOrg</span>
+  <div>
+    <ul class="nav">
+      <li><a routerLink="movies">Filmes</a></li>
+      <li><a routerLink="contacts">Contatos</a></li>
+      <li><a routerLink="playground">Playground</a></li>
+    </ul>
+  </div>
+</header> -->
+<mat-toolbar>
+  <div class="header">
+    <span>MeuOrg</span>
+    <div>
+      <button mat-button (click)="navigateTo('movies')">Filmes</button>
+      <button mat-button (click)="navigateTo('contacts')">Contatos</button>
+      <button mat-button (click)="navigateTo('playground')">Playground</button>
+    </div>
+  </div>
+</mat-toolbar>

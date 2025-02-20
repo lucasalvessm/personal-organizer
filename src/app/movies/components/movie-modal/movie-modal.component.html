@@ -1,0 +1,44 @@
+<mat-card class="modal-container">
+  <h1>{{ movie.title }}</h1>
+  <div class="content">
+    <img [src]="movie.image" alt="" />
+    <div>
+      <div class="info-block">
+        <label for="sinopse">Sinopse</label>
+        <p id="sinopse">{{ movie.synopsis }}</p>
+      </div>
+
+      <div class="group-info-block">
+        <div class="info-block">
+          <label for="sinopse">Gênero</label>
+          <p id="sinopse">{{ movie.genre }}</p>
+        </div>
+        <div class="info-block">
+          <label for="sinopse">Duração</label>
+          <p id="sinopse">{{ movie.duration }}</p>
+        </div>
+        <div class="info-block">
+          <label for="sinopse">Data de Lançamento</label>
+          <p id="sinopse">{{ movie.year }}</p>
+        </div>
+        <div class="info-block">
+          <label for="sinopse">Nota</label>
+          <p id="sinopse">{{ movie.score }}</p>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="actions">
+        <button mat-mini-fab aria-label="Ícone de uma lixeira" color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button
+          mat-mini-fab
+          aria-label="Ícone de uma alteração"
+          color="primary"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-card>

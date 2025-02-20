@@ -1,0 +1,11 @@
+<main>
+  <h1>Filmes</h1>
+  <div class="movies-container">
+    <ng-container *ngFor="let movie of movies">
+      <app-movie
+        [movie]="movie"
+        (onMovieClick)="handleMovieClick($event)"
+      ></app-movie>
+    </ng-container>
+  </div>
+</main>
