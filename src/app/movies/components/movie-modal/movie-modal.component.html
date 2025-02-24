@@ -1,5 +1,6 @@
 <mat-card class="modal-container">
   <h1>{{ movie.title }}</h1>
+  <mat-divider></mat-divider>
   <div class="content">
     <img [src]="movie.image" alt="" />
     <div>
@@ -27,14 +28,20 @@
         </div>
       </div>
       <mat-divider></mat-divider>
-      <div class="actions">
-        <button mat-mini-fab aria-label="Ícone de uma lixeira" color="warn">
+      <div class="flex-space-between">
+        <button
+          mat-mini-fab
+          aria-label="Ícone de uma lixeira"
+          color="warn"
+          (click)="delete()"
+        >
           <mat-icon>delete</mat-icon>
         </button>
         <button
           mat-mini-fab
           aria-label="Ícone de uma alteração"
           color="primary"
+          (click)="edit()"
         >
           <mat-icon>edit</mat-icon>
         </button>

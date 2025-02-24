@@ -1,0 +1,11 @@
+<mat-card class="confirmation-container">
+  <h1>{{ data.text }}</h1>
+  <div class="flex-space-between">
+    <button mat-button color="warn" (click)="doAction('cancel')">
+      {{ data.cancelText }}
+    </button>
+    <button mat-button color="primary" (click)="doAction('confirm')">
+      {{ data.confirmText }}
+    </button>
+  </div>
+</mat-card>

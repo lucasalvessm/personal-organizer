@@ -10,11 +10,16 @@
 </header> -->
 <mat-toolbar>
   <div class="header">
-    <span>MeuOrg</span>
+    <span (click)="navigateTo('')">MeuOrg</span>
     <div>
       <button mat-button (click)="navigateTo('movies')">Filmes</button>
       <button mat-button (click)="navigateTo('contacts')">Contatos</button>
-      <button mat-button (click)="navigateTo('playground')">Playground</button>
+      <button mat-button [matMenuTriggerFor]="menu">Playground</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="navigateTo('playground')">
+          Diretivas
+        </button>
+      </mat-menu>
     </div>
   </div>
 </mat-toolbar>

@@ -1,0 +1,96 @@
+<main class="container">
+  <h1>Adicionar Filme</h1>
+
+  <!-- template drive form -->
+  <!-- <form #form="ngForm" (submit)="save(form)">
+    <mat-form-field>
+      <mat-label>Link da imagem</mat-label>
+      <input
+        matInput
+        placeholder="https://imagem-legal.jpg"
+        name="image"
+        required
+        [(ngModel)]="movie.image"
+      />
+      @if (isFieldInvalid(form.controls['image'])) {
+      <mat-error>Link do filme precisa ser populado</mat-error>
+      }
+    </mat-form-field>
+  </form> -->
+
+  <!-- Reactive form -->
+
+  <form (submit)="save()" [formGroup]="form">
+    <mat-form-field>
+      <mat-label>Link da imagem</mat-label>
+      <input
+        matInput
+        formControlName="image"
+        placeholder="https://imagem-legal.jpg"
+        name="image"
+      />
+      @if (isFieldInvalid(form.controls['image'])) {
+      <mat-error>Link do filme precisa ser populado</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Título</mat-label>
+      <input
+        matInput
+        placeholder="Senhor dos aneis"
+        name="title"
+        formControlName="title"
+      />
+      @if (isFieldInvalid(form.controls['title'])) {
+      <mat-error>Título precisa ser populado</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Ano</mat-label>
+      <input matInput placeholder="1917" name="year" formControlName="year" />
+      @if (isFieldInvalid(form.controls['year'])) {
+      <mat-error>Ano precisa ser numérico</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Nota</mat-label>
+      <input matInput placeholder="8.3" name="score" formControlName="score" />
+      @if (isFieldInvalid(form.controls['score'])) {
+      <mat-error>Ano precisa ser numérico</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Gênero</mat-label>
+      <input
+        matInput
+        placeholder="Terror"
+        name="genre"
+        formControlName="genre"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Duração</mat-label>
+      <input
+        matInput
+        placeholder="120"
+        name="duration"
+        formControlName="duration"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Sinópse</mat-label>
+      <textarea
+        matInput
+        placeholder="Era uma vez..."
+        name="synopses"
+        formControlName="synopses"
+      ></textarea>
+    </mat-form-field>
+
+    <div class="flex-space-between">
+      <button mat-button type="button" (click)="back()">Voltar</button>
+      <button mat-flat-button color="primary" type="submit">Salvar</button>
+    </div>
+  </form>
+</main>

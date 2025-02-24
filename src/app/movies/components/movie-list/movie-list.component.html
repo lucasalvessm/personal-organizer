@@ -1,5 +1,8 @@
 <main>
-  <h1>Filmes</h1>
+  <div class="header">
+    <h1>Filmes</h1>
+    <button mat-button (click)="addMovie()">Add movie</button>
+  </div>
   <div class="movies-container">
     <ng-container *ngFor="let movie of movies">
       <app-movie

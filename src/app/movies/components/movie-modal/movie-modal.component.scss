@@ -3,10 +3,11 @@
   padding: 40px;
 
   h1 {
-    border-bottom: 1px black solid;
+    margin-bottom: 0px;
   }
 
   .content {
+    margin-top: 16px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -22,9 +23,7 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  .actions {
+  .flex-space-between {
     margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
   }
 }

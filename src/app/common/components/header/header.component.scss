@@ -7,6 +7,10 @@ mat-toolbar {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+
+    span {
+      cursor: pointer;
+    }
   }
 
   @media (max-width: 450px) {
