@@ -7,28 +7,6 @@ NgFor,
 NgSwitch,
 NgSwitchCase
 
-### 1 NgIf
-
-`*ngIf="condicao1;`
-
-`    @if(condicao1) {
-    <div class="box">&#64;If</div>
-    }`
-
-### 2 NgIf Else
-
-`*ngIf="condicao1; else elseTemplate"`
-<ng-template #elseTemplate>
-
-<div class="box">else</div>
-</ng-template>
-
-`    @if(condicao2) {
-    <div class="box">&#64;If2</div>
-    } @else {
-    <div class="box">else2</div>
-    }`
-
 ### 3 NgFor
 
     <div
