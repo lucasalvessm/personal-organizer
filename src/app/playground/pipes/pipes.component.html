@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>O que são pipes?</h1>
+  <p>Pipes são expressões no template para transformação de dados</p>
+
+  <h2></h2>
+  <p>{{ dateAsString | date : "MM dd, yy, h:mm:ss a z" }}</p>
+  <p>{{ date2 | date }}</p>
+  <p>{{ date2 | date : "short" }}</p>
+  <p>{{ date2 | date : "MM dd, yy, h:mm:ss a z" | lowercase }}</p>
+  <hr />
+
+  <p>{{ jsonObject | json }}</p>
+
+  <hr />
+
+  <p>{{ frase }}</p>
+  <p>{{ frase | lowercase }}</p>
+
+  <hr />
+
+  <p>{{ saldo | currency : "BRL" }}</p>
+
+  <hr />
+
+  <p>{{ frase | pipeLegal : "teste" : "asdfds" }}</p>
+</div>

@@ -16,9 +16,10 @@
       <button mat-button (click)="navigateTo('contacts')">Contatos</button>
       <button mat-button [matMenuTriggerFor]="menu">Playground</button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="navigateTo('playground')">
+        <button mat-menu-item (click)="navigateTo('diretivas')">
           Diretivas
         </button>
+        <button mat-menu-item (click)="navigateTo('pipes')">Pipes</button>
       </mat-menu>
     </div>
   </div>
