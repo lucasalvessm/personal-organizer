@@ -12,9 +12,9 @@ import { FormsModule } from '@angular/forms';
 export class LifecycleParentComponent {
   frase = 'ola mundo';
 
-  contentProjection = 'content projection';
+  contentProjectionFrase = 'content projection';
 
   atualizaContentProjection() {
-    this.contentProjection = this.frase;
+    this.contentProjectionFrase = this.frase;
   }
 }
