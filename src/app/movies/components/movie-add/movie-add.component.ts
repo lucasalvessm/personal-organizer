@@ -49,11 +49,13 @@ export class MovieAddComponent {
       return;
     }
 
-    this.movieService.save({
-      ...this.form.value,
-    } as Movie);
-
-    this.router.navigate(['']);
+    this.movieService
+      .save({
+        ...this.form.value,
+      } as Movie)
+      .subscribe((res) => {
+        this.router.navigate(['']);
+      });
   }
 
   back(): void {

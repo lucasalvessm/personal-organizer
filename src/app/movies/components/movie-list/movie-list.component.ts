@@ -4,6 +4,7 @@ import { Movie } from '../../models/movie';
 import { MatDialog } from '@angular/material/dialog';
 import { MovieModalComponent } from '../movie-modal/movie-modal.component';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movie-list',
@@ -14,7 +15,11 @@ export class MovieListComponent {
   dialog = inject(MatDialog);
   router = inject(Router);
 
-  constructor(private movieService: MovieService) {}
+  movies$;
+
+  constructor(private movieService: MovieService) {
+    this.movies$ = this.movieService.getMovies();
+  }
 
   public handleMovieClick(movie: Movie): void {
     this.dialog.open(MovieModalComponent, {
@@ -24,9 +29,5 @@ export class MovieListComponent {
 
   public addMovie(): void {
     this.router.navigate(['add-movie']);
-  }
-
-  get movies(): Movie[] {
-    return this.movieService.getMovies();
   }
 }

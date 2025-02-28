@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Movie } from '../models/movie';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -52,12 +54,17 @@ export class MovieService {
     },
   ];
 
-  getMovies(): Movie[] {
-    return this.movies;
+  private api =
+    'https://crudcrud.com/api/07f43b726d644be6b25818fc7a0fb9ed/movies';
+
+  constructor(private httpClient: HttpClient) {}
+
+  getMovies(): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>(this.api);
   }
 
-  save(movie: Movie) {
-    this.movies.push(movie);
+  save(movie: Movie): Observable<any> {
+    return this.httpClient.post(this.api, movie);
   }
 
   delete(movie: Movie) {
