@@ -1,0 +1,20 @@
+<div>
+  <h1>Parent</h1>
+
+  <hr />
+
+  <app-lifecycle-child-child [valor]="frase">
+    <div #contentProjection>
+      <p>content projection</p>
+    </div>
+  </app-lifecycle-child-child>
+</div>
+
+<hr />
+
+<div>
+  <h1>Atividade</h1>
+  <input type="text" [(ngModel)]="frase" />
+
+  <button (click)="atualizaContentProjection()">botão legal</button>
+</div>
