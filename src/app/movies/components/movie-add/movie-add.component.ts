@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import { Movie } from '../../models/movie';
 import {
@@ -26,23 +26,18 @@ export class MovieAddComponent {
 
   //import ReactiveFormsModule
   // image = new FormControl('', [Validators.required]);
-  form: FormGroup;
-
-  constructor(
-    private fb: FormBuilder,
-    private movieService: MovieService,
-    private router: Router
-  ) {
-    this.form = this.fb.group({
-      image: ['', [Validators.required]],
-      title: ['', [Validators.required]],
-      year: ['', [Validators.required, Validators.pattern('[0-9].*')]],
-      score: ['', [Validators.required, Validators.pattern('[0-9].*')]],
-      genre: [''],
-      duration: [''],
-      synopsis: [''],
-    });
-  }
+  fb = inject(FormBuilder);
+  form = this.fb.group({
+    image: ['', [Validators.required]],
+    title: ['', [Validators.required]],
+    year: ['', [Validators.required, Validators.pattern('[0-9].*')]],
+    score: ['', [Validators.required, Validators.pattern('[0-9].*')]],
+    genre: [''],
+    duration: [''],
+    synopsis: [''],
+  });
+  movieService = inject(MovieService);
+  router = inject(Router);
 
   save(): void {
     if (this.form.invalid) {

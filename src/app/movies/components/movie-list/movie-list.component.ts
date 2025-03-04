@@ -14,12 +14,9 @@ import { Observable } from 'rxjs';
 export class MovieListComponent {
   dialog = inject(MatDialog);
   router = inject(Router);
+  movieService = inject(MovieService);
 
-  movies$;
-
-  constructor(private movieService: MovieService) {
-    this.movies$ = this.movieService.getMovies();
-  }
+  movies$ = this.movieService.getMovies();
 
   public handleMovieClick(movie: Movie): void {
     this.dialog.open(MovieModalComponent, {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -13,7 +13,7 @@ import { MatMenuModule } from '@angular/material/menu';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  constructor(private router: Router) {}
+  router = inject(Router);
 
   navigateTo(route: string): void {
     this.router.navigate([route]);
