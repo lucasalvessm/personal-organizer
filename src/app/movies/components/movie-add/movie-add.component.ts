@@ -40,7 +40,7 @@ export class MovieAddComponent {
       score: ['', [Validators.required, Validators.pattern('[0-9].*')]],
       genre: [''],
       duration: [''],
-      synopses: [''],
+      synopsis: [''],
     });
   }
 

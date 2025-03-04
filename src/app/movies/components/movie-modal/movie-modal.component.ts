@@ -43,8 +43,9 @@ export class MovieModalComponent {
           return;
         }
 
-        this.movieService.delete(this.movie);
-        this.dialogRef.close();
+        this.movieService.delete(this.movie).subscribe(() => {
+          this.dialogRef.close();
+        });
       });
   }
 }

@@ -55,7 +55,7 @@ export class MovieService {
   ];
 
   private api =
-    'https://crudcrud.com/api/07f43b726d644be6b25818fc7a0fb9ed/movies';
+    'https://crudcrud.com/api/2b8f268866dd454d9a47cdd9d84f55f0/movies';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -67,8 +67,7 @@ export class MovieService {
     return this.httpClient.post(this.api, movie);
   }
 
-  delete(movie: Movie) {
-    const moviesFiltered = this.movies.filter((m) => m.title !== movie.title);
-    this.movies = moviesFiltered;
+  delete(movie: Movie): Observable<any> {
+    return this.httpClient.delete(`${this.api}/${movie._id}`);
   }
 }
