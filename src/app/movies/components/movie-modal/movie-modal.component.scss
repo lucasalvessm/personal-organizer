@@ -1,6 +1,9 @@
 .modal-container {
   width: fit-content;
+  max-width: 800px;
+  max-height: 80vh;
   padding: 40px;
+  overflow-x: auto;
 
   h1 {
     margin-bottom: 0px;
@@ -15,6 +18,14 @@
 
     img {
       height: 300px;
+      width: fit-content;
+      margin: auto;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .content {
+      flex-direction: column;
     }
   }
 
