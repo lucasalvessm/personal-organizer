@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class MovieService {
   private api =
-    'https://crudcrud.com/api/2b8f268866dd454d9a47cdd9d84f55f0/movies';
+    'https://crudcrud.com/api/e18f9e31f2e04e7fb999b8f0a4a40377/movies';
 
   httpClient = inject(HttpClient);
 

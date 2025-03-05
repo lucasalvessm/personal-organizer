@@ -3,7 +3,8 @@ import { MovieListComponent } from './movies/components/movie-list/movie-list.co
 import { DiretivasComponent } from './playground/diretivas/diretivas.component';
 import { MovieAddComponent } from './movies/components/movie-add/movie-add.component';
 import { PipesComponent } from './playground/pipes/pipes.component';
-import { LifecycleParentComponent } from './playground/lyfecycle/lifecycle-parent/lifecycle-parent.component';
+import { LifecycleParentComponent } from './playground/lifecycle/lifecycle-parent/lifecycle-parent.component';
+import { ObservablesComponent } from './playground/observables/observables.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,10 @@ export const routes: Routes = [
   {
     path: 'lifecycle',
     component: LifecycleParentComponent,
+  },
+  {
+    path: 'observables',
+    component: ObservablesComponent,
   },
   {
     path: '',
