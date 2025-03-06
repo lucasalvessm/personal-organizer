@@ -4,7 +4,6 @@ import { Movie } from '../../models/movie';
 import { MatDialog } from '@angular/material/dialog';
 import { MovieModalComponent } from '../movie-modal/movie-modal.component';
 import { Router } from '@angular/router';
-import { delay } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -23,24 +22,23 @@ export class MovieListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
-    this.movieService
-      .getMovies()
-      .pipe(delay(1000))
-      .subscribe({
-        next: (movies) => (this.movies = movies),
-        error: (err) => {
-          this.loading = false;
-          this.snackBar.open(
-            'Ocorreu um erro inesperado, por favor tente mais tarde!',
-            'close',
-            {
-              duration: 5000,
-            }
-          );
-          console.error(err);
-        },
-        complete: () => (this.loading = false),
-      });
+    this.movieService.getMovies().subscribe({
+      next: (movies) => {
+        this.loading = false;
+        this.movies = movies;
+      },
+      error: (err) => {
+        this.loading = false;
+        this.snackBar.open(
+          'Ocorreu um erro inesperado, por favor tente mais tarde!',
+          'close',
+          {
+            duration: 5000,
+          }
+        );
+        console.error(err);
+      },
+    });
   }
 
   public handleMovieClick(movie: Movie): void {
