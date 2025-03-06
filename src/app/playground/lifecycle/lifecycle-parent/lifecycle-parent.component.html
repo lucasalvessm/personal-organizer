@@ -1,20 +1,22 @@
-<div>
-  <h1>Parent</h1>
+<div class="page-container">
+  <div>
+    <h1>Parent</h1>
+
+    <hr />
+
+    <app-lifecycle-child-child [valor]="frase">
+      <div #contentProjection>
+        <p>{{ contentProjectionFrase }}</p>
+      </div>
+    </app-lifecycle-child-child>
+  </div>
 
   <hr />
 
-  <app-lifecycle-child-child [valor]="frase">
-    <div #contentProjection>
-      <p>{{ contentProjectionFrase }}</p>
-    </div>
-  </app-lifecycle-child-child>
-</div>
+  <div>
+    <h1>Atividade</h1>
+    <input type="text" [(ngModel)]="frase" />
 
-<hr />
-
-<div>
-  <h1>Atividade</h1>
-  <input type="text" [(ngModel)]="frase" />
-
-  <button (click)="atualizaContentProjection()">botão legal</button>
+    <button (click)="atualizaContentProjection()">botão legal</button>
+  </div>
 </div>
