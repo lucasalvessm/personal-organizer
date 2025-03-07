@@ -5,6 +5,7 @@ import { MovieAddComponent } from './movies/components/movie-add/movie-add.compo
 import { PipesComponent } from './playground/pipes/pipes.component';
 import { LifecycleParentComponent } from './playground/lifecycle/lifecycle-parent/lifecycle-parent.component';
 import { ObservablesComponent } from './playground/observables/observables.component';
+import { NgrxStoreComponent } from './playground/ngrx-store/ngrx-store.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,10 @@ export const routes: Routes = [
   {
     path: 'observables',
     component: ObservablesComponent,
+  },
+  {
+    path: 'ngrx-store',
+    component: NgrxStoreComponent,
   },
   {
     path: '',

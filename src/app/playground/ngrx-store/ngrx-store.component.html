@@ -1,0 +1,11 @@
+<div class="page-container">
+  <h1>NgRx Store</h1>
+  <p>counter {{ counter$ | async }}</p>
+  <p>last action {{ counterLastAction$ | async }}</p>
+  <p>double counter {{ doubleCounter$ | async }}</p>
+
+  <input [(ngModel)]="number" type="number" />
+
+  <button (click)="increment()">Increment</button>
+  <button (click)="decrement()">Decrement</button>
+</div>
