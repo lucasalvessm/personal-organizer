@@ -4,6 +4,7 @@ import {
   filter,
   interval,
   map,
+  of,
   retry,
   Subject,
   Subscription,
@@ -17,25 +18,29 @@ import {
   styleUrl: './observables.component.scss',
 })
 export class ObservablesComponent implements OnDestroy {
-  subscriptionList: Subscription[] = [];
+  subscription: Subscription | undefined;
   behaviorSubject = new BehaviorSubject<string>('0');
   subject = new Subject();
 
   constructor() {
-    const subscription = interval(1000).pipe(
-      filter((valor) => valor % 2 !== 0),
-      map((valor) => valor * 2)
-    );
-    // .subscribe((intervalo) => console.log(intervalo));
+    // const subscription = interval(1000).subscribe((intervalo) =>
+    //   console.log(intervalo)
+    // );
 
-    // this.subscriptionList.push(subscription);
+    // const subscription = interval(1000)
+    //   .pipe(
+    //     filter((valor) => valor % 2 !== 0),
+    //     map((valor) => valor * 2)
+    //   )
+    //   .subscribe((intervalo) => console.log(intervalo));
+
+    // this.subscription = subscription;
+
+    of('').subscribe((valor) => console.log(valor));
 
     this.behaviorSubject
       .asObservable()
-      .pipe(
-        map((valor) => valor + 'mensagem legal'),
-        retry(3)
-      )
+      .pipe(retry(3))
       .subscribe({
         next: (value) => {
           console.log(value);
@@ -50,7 +55,7 @@ export class ObservablesComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscriptionList.forEach((sub) => sub.unsubscribe());
+    this.subscription?.unsubscribe();
   }
 
   novoValor() {
@@ -63,12 +68,5 @@ export class ObservablesComponent implements OnDestroy {
 
   novoValorComplete() {
     this.behaviorSubject.complete();
-  }
-
-  novoValorAsync() {
-    setTimeout(
-      () => this.behaviorSubject.next('novo valor pro observable'),
-      3000
-    );
   }
 }
