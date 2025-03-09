@@ -3,9 +3,9 @@ import { Movie } from '../models/movie';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, delay, Observable, switchMap, tap } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+// @Injectable({
+//   providedIn: 'root',
+// })
 export class MovieService {
   moviesSubject = new BehaviorSubject<Movie[]>([]);
   movies$ = this.moviesSubject.asObservable();

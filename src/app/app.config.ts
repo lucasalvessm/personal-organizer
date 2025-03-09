@@ -9,6 +9,8 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { counterReducer } from './playground/ngrx-store/store/counter.reducer';
 import { CounterEffects } from './playground/ngrx-store/store/counter.effects';
+import { movieReducer } from './movies/store/movie.reducer';
+import { MovieEffects } from './movies/store/movie.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,8 +20,9 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideStore({
       counter: counterReducer,
+      movie: movieReducer,
     }),
-    provideEffects([CounterEffects]),
+    provideEffects([CounterEffects, MovieEffects]),
     provideStoreDevtools(),
   ],
 };

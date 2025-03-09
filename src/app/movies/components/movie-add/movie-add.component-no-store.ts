@@ -1,20 +1,31 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import { Movie } from '../../models/movie';
-import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { MovieService } from '../../services/movie.service';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { createMovie } from '../../store/movie.actions';
-import { saveMovieLoadingSelect } from '../../store/movie.selectors';
 
-@Component({
-  selector: 'app-movie-add',
+// @Component({
+//   selector: 'app-movie-add',
 
-  templateUrl: './movie-add.component.html',
-  styleUrl: './movie-add.component.scss',
-})
+//   templateUrl: './movie-add.component.html',
+//   styleUrl: './movie-add.component.scss',
+// })
 export class MovieAddComponent {
+  // movie: Movie = {
+  //   image: 'httpsdfsdf',
+  //   title: '',
+  //   synopsis: '',
+  //   genre: '',
+  // };
+
+  //import ReactiveFormsModule
+  // image = new FormControl('', [Validators.required]);
   fb = inject(FormBuilder);
   form = this.fb.group({
     image: ['', [Validators.required]],
@@ -27,23 +38,19 @@ export class MovieAddComponent {
   });
   movieService = inject(MovieService);
   router = inject(Router);
-  store = inject(Store);
-  loading$ = this.store.select(saveMovieLoadingSelect);
 
   save(): void {
     if (this.form.invalid) {
       return;
     }
 
-    this.store.dispatch(createMovie({ movie: this.form.value as Movie }));
-
-    // this.movieService
-    //   .save({
-    //     ...this.form.value,
-    //   } as Movie)
-    //   .subscribe((res) => {
-    //     this.router.navigate(['']);
-    //   });
+    this.movieService
+      .save({
+        ...this.form.value,
+      } as Movie)
+      .subscribe((res) => {
+        this.router.navigate(['']);
+      });
   }
 
   back(): void {

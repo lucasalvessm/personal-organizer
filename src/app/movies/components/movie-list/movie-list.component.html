@@ -4,7 +4,7 @@
     <button mat-button (click)="addMovie()">Add movie</button>
   </div>
   <div class="movies-container">
-    @if(loading) {
+    @if(loading$ | async) {
     <mat-spinner></mat-spinner>
     } @else { @for(movie of movies; track movie._id) {
     <app-movie
