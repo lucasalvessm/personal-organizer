@@ -10,12 +10,12 @@ import {
 import { MovieService } from '../../services/movie.service-store';
 import { Router } from '@angular/router';
 
-// @Component({
-//   selector: 'app-movie-add',
+@Component({
+  selector: 'app-movie-add',
 
-//   templateUrl: './movie-add.component.html',
-//   styleUrl: './movie-add.component.scss',
-// })
+  templateUrl: './movie-add.component.html',
+  styleUrl: './movie-add.component.scss',
+})
 export class MovieAddComponent {
   // movie: Movie = {
   //   image: 'httpsdfsdf',

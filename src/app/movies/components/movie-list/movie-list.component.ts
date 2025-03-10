@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { MovieService } from '../../services/movie.service-store';
+import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../models/movie';
 import { MatDialog } from '@angular/material/dialog';
 import { MovieModalComponent } from '../movie-modal/movie-modal.component';
