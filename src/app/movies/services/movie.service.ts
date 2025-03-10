@@ -3,24 +3,53 @@ import { Movie } from '../models/movie';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, delay, Observable, switchMap, tap } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+// @Injectable({
+//   providedIn: 'root',
+// })
 export class MovieService {
+  moviesSubject = new BehaviorSubject<Movie[]>([]);
+  movies$ = this.moviesSubject.asObservable();
+
   private api =
-    'https://crudcrud.com/api/b017743fd9ca4328a520762f3445939a/movies';
+    'https://crudcrud.com/api/305b9dd8fa96433aa8fe22cc13071659/movies';
 
   httpClient = inject(HttpClient);
 
   getMovies(): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>(this.api).pipe(delay(1000));
+    if (this.moviesSubject.getValue()?.length) {
+      return this.movies$;
+    }
+
+    return this.httpClient.get<Movie[]>(this.api).pipe(
+      delay(1000),
+      switchMap((movies) => {
+        this.moviesSubject.next(movies);
+        return this.movies$;
+      })
+    );
   }
 
   save(movie: Movie): Observable<any> {
-    return this.httpClient.post(this.api, movie);
+    return this.httpClient.post(this.api, movie).pipe(
+      tap((result) => {
+        const movies = [...this.moviesSubject.getValue(), result] as Movie[];
+
+        this.moviesSubject.next(movies);
+      })
+    );
   }
 
   delete(movieToDelete: Movie): Observable<any> {
-    return this.httpClient.delete(`${this.api}/${movieToDelete._id}`);
+    return this.httpClient.delete(`${this.api}/${movieToDelete._id}`).pipe(
+      tap(() => {
+        const movies = this.moviesSubject
+          .getValue()
+          .filter((movie) => movie._id !== movieToDelete._id);
+
+        this.moviesSubject.next(movies);
+
+        this.getMovies();
+      })
+    );
   }
 }

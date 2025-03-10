@@ -10,9 +10,7 @@ import {
   ConfirmationModalComponent,
   ConfirmationModalData,
 } from '../../../common/components/confirmation-modal/confirmation-modal.component';
-import { MovieService } from '../../services/movie.service';
-import { Store } from '@ngrx/store';
-import { deleteMovie } from '../../store/movie.actions';
+import { MovieService } from '../../services/movie.service-store';
 
 @Component({
   selector: 'app-movie-modal',
@@ -23,7 +21,6 @@ export class MovieModalComponent {
   movie: Movie = inject(MAT_DIALOG_DATA);
   dialog = inject(MatDialog);
   dialogRef = inject(MatDialogRef<ConfirmationModalComponent>);
-  store = inject(Store);
 
   constructor(private movieService: MovieService) {}
 
@@ -46,8 +43,9 @@ export class MovieModalComponent {
           return;
         }
 
-        this.store.dispatch(deleteMovie({ movie: this.movie }));
-        this.dialogRef.close();
+        this.movieService.delete(this.movie).subscribe(() => {
+          this.dialogRef.close();
+        });
       });
   }
 }

@@ -10,7 +10,7 @@ import {
 } from './movie.actions';
 import { map, of, switchMap, tap, withLatestFrom } from 'rxjs';
 import { moviesSelect } from './movie.selectors';
-import { MovieService } from '../services/movie.service';
+import { MovieService } from '../services/movie.service-store';
 import { Router } from '@angular/router';
 
 @Injectable()
