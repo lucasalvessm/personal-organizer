@@ -20,9 +20,9 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideStore({
       counter: counterReducer,
-      movie: movieReducer,
+      // movie: movieReducer,
     }),
-    provideEffects([CounterEffects, MovieEffects]),
+    provideEffects([CounterEffects]), // MovieEffects
     provideStoreDevtools(),
   ],
 };

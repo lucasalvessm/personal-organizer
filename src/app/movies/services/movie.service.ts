@@ -11,7 +11,7 @@ export class MovieService {
   movies$ = this.moviesSubject.asObservable();
 
   private api =
-    'https://crudcrud.com/api/305b9dd8fa96433aa8fe22cc13071659/movies';
+    'https://crudcrud.com/api/1eab1d56c52c41ddbaf9308b27bafe72/movies';
 
   httpClient = inject(HttpClient);
 
