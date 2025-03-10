@@ -7,7 +7,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { MovieService } from '../../services/movie.service-store';
+import { MovieService } from '../../services/movie.service';
 import { Router } from '@angular/router';
 
 @Component({

@@ -10,7 +10,7 @@ import {
   ConfirmationModalComponent,
   ConfirmationModalData,
 } from '../../../common/components/confirmation-modal/confirmation-modal.component';
-import { MovieService } from '../../services/movie.service-store';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-movie-modal',

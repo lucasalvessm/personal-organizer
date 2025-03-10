@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConfirmationModalComponent } from './confirmation-modal.component';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { matDialogRefProvider } from '../../testing/shared.providers';
 
 describe('ConfirmationModalComponent', () => {
   let component: ConfirmationModalComponent;
@@ -15,6 +16,7 @@ describe('ConfirmationModalComponent', () => {
           provide: MAT_DIALOG_DATA,
           useValue: {},
         },
+        matDialogRefProvider,
       ],
     }).compileComponents();
 

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MovieService } from './movie.service-store';
+import { MovieService } from './movie.service';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 

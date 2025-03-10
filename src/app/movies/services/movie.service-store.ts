@@ -3,9 +3,9 @@ import { Movie } from '../models/movie';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, delay, Observable, switchMap, tap } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+// @Injectable({
+//   providedIn: 'root',
+// })
 export class MovieService {
   private api =
     'https://crudcrud.com/api/b017743fd9ca4328a520762f3445939a/movies';
