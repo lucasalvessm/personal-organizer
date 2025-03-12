@@ -1,7 +1,9 @@
 <main>
   <div class="header">
-    <h1>Filmes</h1>
-    <button mat-button (click)="addMovie()">Add movie</button>
+    <h1 data-cy="movie-title">Filmes</h1>
+    <button data-cy="movie-add-button" mat-button (click)="addMovie()">
+      Add movie
+    </button>
   </div>
   <div class="movies-container">
     <!-- @if(loading$ | async) { -->

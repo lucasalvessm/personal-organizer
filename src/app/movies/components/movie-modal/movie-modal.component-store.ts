@@ -4,7 +4,7 @@ import {
   MatDialog,
   MatDialogRef,
 } from '@angular/material/dialog';
-import { Movie } from '../../models/movie';
+import { Movie } from '../../models/movie.model';
 
 import {
   ConfirmationModalComponent,

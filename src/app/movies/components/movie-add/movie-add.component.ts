@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 
-import { Movie } from '../../models/movie';
+import { Movie } from '../../models/movie.model';
 import {
   AbstractControl,
   FormBuilder,

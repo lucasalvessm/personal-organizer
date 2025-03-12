@@ -33,4 +33,10 @@ describe('MovieModalComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call console.log with value edit', () => {
+    const consoleLogSpy = spyOn(console, 'log');
+    component.edit();
+    expect(consoleLogSpy).toHaveBeenCalledWith('edit');
+  });
 });

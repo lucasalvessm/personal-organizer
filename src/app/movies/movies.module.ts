@@ -6,6 +6,7 @@ import { MovieAddComponent } from './components/movie-add/movie-add.component';
 import { MovieModalComponent } from './components/movie-modal/movie-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../common/material.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,26 @@ import { MaterialModule } from '../common/material.module';
     MovieModalComponent,
     MovieAddComponent,
   ],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, MaterialModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    RouterModule.forChild([
+      {
+        path: 'list',
+        component: MovieListComponent,
+      },
+      {
+        path: 'add-movie',
+        component: MovieAddComponent,
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'list',
+      },
+    ]),
+  ],
 })
 export class MoviesModule {}

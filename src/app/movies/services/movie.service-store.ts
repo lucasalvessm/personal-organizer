@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Movie } from '../models/movie';
+import { Movie } from '../models/movie.model';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, delay, Observable, switchMap, tap } from 'rxjs';
 

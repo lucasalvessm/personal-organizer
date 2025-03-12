@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { Movie } from '../models/movie';
+import { Movie } from '../models/movie.model';
 import {
   createMovie,
   getMovies,

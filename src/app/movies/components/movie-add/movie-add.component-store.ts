@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 
-import { Movie } from '../../models/movie';
+import { Movie } from '../../models/movie.model';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { MovieService } from '../../services/movie.service-store';
 import { Router } from '@angular/router';

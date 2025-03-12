@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Movie } from '../models/movie';
+import { Movie } from '../models/movie.model';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, delay, Observable, switchMap, tap } from 'rxjs';
 
@@ -11,7 +11,7 @@ export class MovieService {
   movies$ = this.moviesSubject.asObservable();
 
   private api =
-    'https://crudcrud.com/api/1eab1d56c52c41ddbaf9308b27bafe72/movies';
+    'https://crudcrud.com/api/a0f8f4d5309848dbb4bbacc37afc3596/movies';
 
   httpClient = inject(HttpClient);
 

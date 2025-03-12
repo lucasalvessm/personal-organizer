@@ -1,4 +1,4 @@
-import { Movie } from '../../movies/models/movie';
+import { Movie } from '../../movies/models/movie.model';
 
 export const moviesMock: Movie[] = [
   {
