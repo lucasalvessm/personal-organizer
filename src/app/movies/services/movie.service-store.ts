@@ -21,6 +21,6 @@ export class MovieService {
   }
 
   delete(movieToDelete: Movie): Observable<any> {
-    return this.httpClient.delete(`${this.api}/${movieToDelete._id}`);
+    return this.httpClient.delete(`${this.api}/${movieToDelete.id}`);
   }
 }

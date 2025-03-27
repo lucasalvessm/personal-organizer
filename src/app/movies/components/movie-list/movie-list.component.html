@@ -9,7 +9,7 @@
     <!-- @if(loading$ | async) { -->
     @if(loading) {
     <mat-spinner></mat-spinner>
-    } @else { @for(movie of movies; track movie._id) {
+    } @else { @for(movie of movies; track movie.id) {
     <app-movie
       [movie]="movie"
       (onMovieClick)="handleMovieClick($event)"

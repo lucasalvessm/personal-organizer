@@ -10,8 +10,7 @@ export class MovieService {
   moviesSubject = new BehaviorSubject<Movie[]>([]);
   movies$ = this.moviesSubject.asObservable();
 
-  private api =
-    'https://crudcrud.com/api/a0f8f4d5309848dbb4bbacc37afc3596/movies';
+  private api = 'http://localhost:3000/movies';
 
   httpClient = inject(HttpClient);
 
@@ -40,11 +39,11 @@ export class MovieService {
   }
 
   delete(movieToDelete: Movie): Observable<any> {
-    return this.httpClient.delete(`${this.api}/${movieToDelete._id}`).pipe(
+    return this.httpClient.delete(`${this.api}/${movieToDelete.id}`).pipe(
       tap(() => {
         const movies = this.moviesSubject
           .getValue()
-          .filter((movie) => movie._id !== movieToDelete._id);
+          .filter((movie) => movie.id !== movieToDelete.id);
 
         this.moviesSubject.next(movies);
 

@@ -55,7 +55,7 @@ export class MovieEffects {
         return this.movieService.delete(action.movie).pipe(
           map(() => {
             const newMovies = movies.filter(
-              (movie) => movie._id !== action.movie._id
+              (movie) => movie.id !== action.movie.id
             );
             return storeMovies({ movies: newMovies });
           })

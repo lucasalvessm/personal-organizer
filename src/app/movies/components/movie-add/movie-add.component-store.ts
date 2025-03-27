@@ -8,12 +8,12 @@ import { Store } from '@ngrx/store';
 import { createMovie } from '../../store/movie.actions';
 import { saveMovieLoadingSelect } from '../../store/movie.selectors';
 
-@Component({
-  selector: 'app-movie-add',
+// @Component({
+//   selector: 'app-movie-add',
 
-  templateUrl: './movie-add.component.html',
-  styleUrl: './movie-add.component.scss',
-})
+//   templateUrl: './movie-add.component.html',
+//   styleUrl: './movie-add.component.scss',
+// })
 export class MovieAddComponent {
   fb = inject(FormBuilder);
   form = this.fb.group({

@@ -13,11 +13,11 @@ import {
 import { getMovies } from '../../store/movie.actions';
 import { Observable } from 'rxjs';
 
-@Component({
-  selector: 'app-movie-list',
-  templateUrl: './movie-list.component.html',
-  styleUrl: './movie-list.component.scss',
-})
+// @Component({
+//   selector: 'app-movie-list',
+//   templateUrl: './movie-list.component.html',
+//   styleUrl: './movie-list.component.scss',
+// })
 export class MovieListComponent implements OnInit {
   dialog = inject(MatDialog);
   router = inject(Router);
